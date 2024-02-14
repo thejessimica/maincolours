@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Colour Checker</title>
+    <style>
+        .color-box {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            display: inline-block;
+            border: 2px solid black;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container {
+            display: flex;
+            height: 50%;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+        }
+
+        .boxes-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="{{ image }}" height="400px">
+    </div>
+    <div class="boxes-container">
+        {% for hex in hex_codes %}
+            <div class="color-box" style="background-color: {{ hex }};"></div>
+        {% endfor %}
+    </div>
+<div class ="form">
+<form method="POST" enctype="multipart/form-data">
+    {{ form.image }}<br><br>
+    {{ form.submit }}
+</form>
+</div>
+
+</body>
+</html>
